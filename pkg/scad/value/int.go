@@ -16,38 +16,38 @@ package value
 
 import "strconv"
 
-// Int represents a float64 value that can be explicitly set.
+// Int represents an int value that can be explicitly set.
 type Int struct {
 	value int
 	set   bool
 }
 
 // Set explicitly sets the given value.
-func (f *Int) Set(value int) {
-	f.value = value
-	f.set = true
+func (i *Int) Set(value int) {
+	i.value = value
+	i.set = true
 }
 
 // IsSet returns a boolean indicating if Int has been explicitly set.
-func (f Int) IsSet() bool {
-	return f.set
+func (i Int) IsSet() bool {
+	return i.set
 }
 
 // Value returns the Int's stored value.
-func (f Int) Value() int {
-	return f.value
+func (i Int) Value() int {
+	return i.value
 }
 
 // GetParameterValue returns the string representation of Int, and a boolean
 // indicating if it was explicitly set.
-func (f Int) GetParameterValue() (string, bool) {
-	return strconv.FormatInt(int64(f.value), 10), f.set
+func (i Int) GetParameterValue() (string, bool) {
+	return strconv.FormatInt(int64(i.value), 10), i.set
 }
 
 // NewInt returns a new Int with the given value explicitly set.
 func NewInt(value int) Int {
-	var f Int
-	f.Set(value)
+	var i Int
+	i.Set(value)
 
-	return f
+	return i
 }
